@@ -9,18 +9,35 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
+    <!-- Language Selection Overlay -->
+    <div id="language-overlay" class="language-overlay">
+        <div class="language-modal">
+            <h2 class="language-title">Choose Your Language / 选择您的语言</h2>
+            <div class="language-buttons">
+                <button class="lang-btn" onclick="setLanguage('en')">
+                    <span class="lang-flag">🇺🇸</span>
+                    <span class="lang-name">English</span>
+                </button>
+                <button class="lang-btn" onclick="setLanguage('zh')">
+                    <span class="lang-flag">🇨🇳</span>
+                    <span class="lang-name">中文</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img src="images/app-icon.png" alt="AI倒数日" class="nav-logo">
-                <span>AI倒数日</span>
+                <img src="images/app-icon.png" alt="AI Daily Matters" class="nav-logo">
+                <span data-lang="brand-name">AI倒数日</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#features">功能特色</a></li>
-                <li><a href="#screenshots">应用截图</a></li>
-                <li><a href="#download">下载</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#features" data-lang="nav-features">功能特色</a></li>
+                <li><a href="#screenshots" data-lang="nav-screenshots">应用截图</a></li>
+                <li><a href="#download" data-lang="nav-download">下载</a></li>
+                <li><a href="#contact" data-lang="nav-contact">联系我们</a></li>
+                <li><a href="#" onclick="showLanguageSelector()" class="lang-switch">🌐</a></li>
             </ul>
         </div>
     </nav>
@@ -30,26 +47,26 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>AI倒数日</h1>
-                    <h2>智能时间管理，记录每个重要时刻</h2>
-                    <p>通过AI助手的自然语言交互，让时间管理变得简单而有趣。永远不会错过生命中的重要时刻。</p>
+                    <h1 data-lang="hero-title">AI倒数日</h1>
+                    <h2 data-lang="hero-subtitle">智能时间管理，记录每个重要时刻</h2>
+                    <p data-lang="hero-description">通过AI助手的自然语言交互，让时间管理变得简单而有趣。永远不会错过生命中的重要时刻。</p>
                     <div class="hero-buttons">
-                        <a href="#download" class="btn btn-primary">
+                        <a href="https://apps.apple.com/us/app/aidailymatters/id6749191633" class="btn btn-primary" target="_blank">
                             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                             </svg>
-                            App Store下载
+                            <span data-lang="hero-download">App Store下载</span>
                         </a>
                         <a href="https://github.com/WeiProduct/AIDailyMatters" class="btn btn-secondary">
                             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
                             </svg>
-                            查看源代码
+                            <span data-lang="hero-github">查看源代码</span>
                         </a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/hero-mockup.png" alt="AI倒数日应用界面">
+                    <img src="images/hero-mockup.png" alt="AI Daily Matters App Interface">
                 </div>
             </div>
         </div>
@@ -58,37 +75,37 @@
     <!-- 功能特色 -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">功能特色</h2>
+            <h2 class="section-title" data-lang="features-title">功能特色</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
-                    <h3>AI智能助手</h3>
-                    <p>通过自然语言对话，快速创建和管理倒数日。只需说"帮我创建妈妈生日倒数日"，AI就能理解并执行。</p>
+                    <h3 data-lang="feature-ai-title">AI智能助手</h3>
+                    <p data-lang="feature-ai-desc">通过自然语言对话，快速创建和管理倒数日。只需说"帮我创建妈妈生日倒数日"，AI就能理解并执行。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📅</div>
-                    <h3>月历视图</h3>
-                    <p>直观的日历界面，一目了然查看所有重要日期分布，支持月份切换和快速导航。</p>
+                    <h3 data-lang="feature-calendar-title">月历视图</h3>
+                    <p data-lang="feature-calendar-desc">直观的日历界面，一目了然查看所有重要日期分布，支持月份切换和快速导航。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏷️</div>
-                    <h3>智能分类</h3>
-                    <p>自定义分类管理，为不同类型的倒数日设置独特的图标和颜色，让管理更有序。</p>
+                    <h3 data-lang="feature-category-title">智能分类</h3>
+                    <p data-lang="feature-category-desc">自定义分类管理，为不同类型的倒数日设置独特的图标和颜色，让管理更有序。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>数据统计</h3>
-                    <p>详细的统计分析，了解您的时间规划习惯，帮助您更好地管理时间。</p>
+                    <h3 data-lang="feature-stats-title">数据统计</h3>
+                    <p data-lang="feature-stats-desc">详细的统计分析，了解您的时间规划习惯，帮助您更好地管理时间。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
-                    <h3>智能提醒</h3>
-                    <p>重要事件提醒功能，确保您不会错过任何重要时刻。</p>
+                    <h3 data-lang="feature-reminder-title">智能提醒</h3>
+                    <p data-lang="feature-reminder-desc">重要事件提醒功能，确保您不会错过任何重要时刻。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>隐私保护</h3>
-                    <p>所有数据本地存储，充分保护您的隐私安全。</p>
+                    <h3 data-lang="feature-privacy-title">隐私保护</h3>
+                    <p data-lang="feature-privacy-desc">所有数据本地存储，充分保护您的隐私安全。</p>
                 </div>
             </div>
         </div>
@@ -97,28 +114,28 @@
     <!-- 应用截图 -->
     <section id="screenshots" class="screenshots">
         <div class="container">
-            <h2 class="section-title">应用截图</h2>
+            <h2 class="section-title" data-lang="screenshots-title">应用截图</h2>
             <div class="screenshot-slider">
                 <div class="screenshot-container">
                     <div class="screenshot">
-                        <img src="images/screenshot-1.png" alt="主页界面">
-                        <p>主页 - 倒数日列表</p>
+                        <img src="images/screenshot-1.png" alt="Screenshot 1">
+                        <p data-lang="screenshot-1-caption">主页 - 倒数日列表</p>
                     </div>
                     <div class="screenshot">
-                        <img src="images/screenshot-2.png" alt="AI对话">
-                        <p>AI智能助手</p>
+                        <img src="images/screenshot-2.png" alt="Screenshot 2">
+                        <p data-lang="screenshot-2-caption">AI智能助手</p>
                     </div>
                     <div class="screenshot">
-                        <img src="images/screenshot-3.png" alt="月历视图">
-                        <p>月历视图</p>
+                        <img src="images/screenshot-3.png" alt="Screenshot 3">
+                        <p data-lang="screenshot-3-caption">月历视图</p>
                     </div>
                     <div class="screenshot">
-                        <img src="images/screenshot-4.png" alt="创建倒数日">
-                        <p>创建倒数日</p>
+                        <img src="images/screenshot-4.png" alt="Screenshot 4">
+                        <p data-lang="screenshot-4-caption">创建倒数日</p>
                     </div>
                     <div class="screenshot">
-                        <img src="images/screenshot-5.png" alt="数据统计">
-                        <p>数据统计</p>
+                        <img src="images/screenshot-5.png" alt="Screenshot 5">
+                        <p data-lang="screenshot-5-caption">数据统计</p>
                     </div>
                 </div>
             </div>
@@ -128,24 +145,24 @@
     <!-- 下载区域 -->
     <section id="download" class="download">
         <div class="container">
-            <h2 class="section-title">立即下载</h2>
+            <h2 class="section-title" data-lang="download-title">立即下载</h2>
             <div class="download-content">
                 <div class="download-info">
-                    <h3>开始您的智能时间管理之旅</h3>
-                    <p>AI倒数日现已在 App Store 上架，完全免费下载使用。</p>
+                    <h3 data-lang="download-heading">开始您的智能时间管理之旅</h3>
+                    <p data-lang="download-desc">AI倒数日现已在 App Store 上架，完全免费下载使用。</p>
                     <ul class="download-features">
-                        <li>✓ 支持 iOS 16.0 及以上版本</li>
-                        <li>✓ 支持 iPhone 和 iPad</li>
-                        <li>✓ 完全免费，无内购</li>
-                        <li>✓ 无需注册账号</li>
+                        <li data-lang="download-feature-1">✓ 支持 iOS 16.0 及以上版本</li>
+                        <li data-lang="download-feature-2">✓ 支持 iPhone 和 iPad</li>
+                        <li data-lang="download-feature-3">✓ 完全免费，无内购</li>
+                        <li data-lang="download-feature-4">✓ 无需注册账号</li>
                     </ul>
-                    <a href="#" class="app-store-badge">
+                    <a href="https://apps.apple.com/us/app/aidailymatters/id6749191633" class="app-store-badge" target="_blank">
                         <img src="images/app-store-badge.png" alt="Download on the App Store">
                     </a>
                 </div>
                 <div class="download-qr">
                     <img src="images/qr-code.png" alt="下载二维码">
-                    <p>扫码下载</p>
+                    <p data-lang="download-qr-text">扫码下载</p>
                 </div>
             </div>
         </div>
@@ -157,28 +174,28 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="images/app-icon.png" alt="AI倒数日" class="footer-logo">
-                    <p>AI倒数日 - 智能时间管理助手</p>
+                    <p data-lang="footer-desc">AI倒数日 - 智能时间管理助手</p>
                 </div>
                 <div class="footer-links">
-                    <h4>快速链接</h4>
+                    <h4 data-lang="footer-links-title">快速链接</h4>
                     <ul>
-                        <li><a href="#features">功能特色</a></li>
-                        <li><a href="#screenshots">应用截图</a></li>
-                        <li><a href="#download">下载应用</a></li>
-                        <li><a href="privacy.html">隐私政策</a></li>
-                        <li><a href="terms.html">使用条款</a></li>
+                        <li><a href="#features" data-lang="footer-links-features">功能特色</a></li>
+                        <li><a href="#screenshots" data-lang="footer-links-screenshots">应用截图</a></li>
+                        <li><a href="#download" data-lang="footer-links-download">下载应用</a></li>
+                        <li><a href="privacy.html" data-lang="footer-links-privacy">隐私政策</a></li>
+                        <li><a href="terms.html" data-lang="footer-links-terms">使用条款</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>联系我们</h4>
+                    <h4 data-lang="footer-contact-title">联系我们</h4>
                     <ul>
-                        <li><a href="https://github.com/WeiProduct/AIDailyMatters">GitHub</a></li>
-                        <li><a href="mailto:support@aidailymatters.com">邮箱支持</a></li>
+                        <li><a href="https://github.com/WeiProduct/AIDailyMatters" data-lang="footer-contact-github">GitHub</a></li>
+                        <li><a href="mailto:support@aidailymatters.com" data-lang="footer-contact-email">邮箱支持</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Wei Fu. All rights reserved.</p>
+                <p data-lang="footer-copyright">&copy; 2025 Wei Fu. All rights reserved.</p>
             </div>
         </div>
     </footer>
