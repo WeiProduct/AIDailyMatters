@@ -274,8 +274,24 @@ body {
     color: var(--text-secondary);
 }
 
+.app-store-badge {
+    display: inline-block;
+    background: #007AFF;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.app-store-badge:hover {
+    background: #0051D5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+}
+
 .app-store-badge img {
-    height: 60px;
+    height: 40px;
+    filter: brightness(0) invert(1);
 }
 
 .download-qr {
@@ -338,6 +354,76 @@ body {
     color: rgba(255,255,255,0.6);
 }
 
+/* Language Overlay */
+.language-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.language-modal {
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.language-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.language-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.lang-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 30px 40px;
+    background: var(--background);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.lang-btn:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(107, 92, 230, 0.2);
+}
+
+.lang-flag {
+    font-size: 3rem;
+}
+
+.lang-name {
+    font-weight: 600;
+}
+
+.lang-switch {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .nav-menu {
@@ -370,5 +456,14 @@ body {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .language-buttons {
+        flex-direction: column;
+    }
+    
+    .lang-btn {
+        width: 100%;
+        padding: 20px;
     }
 }
