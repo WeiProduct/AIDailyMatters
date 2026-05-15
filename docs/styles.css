@@ -22,6 +22,7 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background);
+    overflow-x: hidden;
 }
 
 .container {
@@ -38,6 +39,11 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: box-shadow 0.2s ease;
+}
+
+.navbar.is-scrolled {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .navbar .container {
@@ -229,6 +235,8 @@ body {
 .screenshot img {
     width: 100%;
     height: auto;
+    aspect-ratio: 1290 / 2796;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     margin-bottom: 1rem;
@@ -354,6 +362,64 @@ body {
     color: rgba(255,255,255,0.6);
 }
 
+.content {
+    max-width: 800px;
+    margin: 100px auto 50px;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.content h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    color: var(--text-primary);
+    margin: 30px 0 15px;
+}
+
+.content p,
+.content li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.content a {
+    color: var(--primary-color);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.no-motion * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+}
+
 /* Language Overlay */
 .language-overlay {
     position: fixed;
@@ -443,6 +509,10 @@ body {
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    .hero-image img {
+        max-width: 280px;
+    }
     
     .features-grid {
         grid-template-columns: 1fr;
@@ -465,5 +535,10 @@ body {
     .lang-btn {
         width: 100%;
         padding: 20px;
+    }
+
+    .content {
+        margin: 90px 16px 40px;
+        padding: 28px;
     }
 }
