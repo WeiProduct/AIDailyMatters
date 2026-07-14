@@ -120,10 +120,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 /* Hero countdown widget */
 .hero-visual { position: relative; display: flex; justify-content: center; }
-.device { position: relative; width: 300px; max-width: 78vw; background: var(--card); border: 1px solid var(--border-color); border-radius: 40px; padding: 16px 14px 18px; box-shadow: var(--shadow-lg); }
+.device { position: relative; width: 300px; max-width: 78vw; aspect-ratio: 9 / 19.5; display: flex; flex-direction: column; overflow: hidden; background: var(--card); border: 1px solid var(--border-color); border-radius: 40px; padding: 16px 14px 18px; box-shadow: var(--shadow-lg); }
 .device-notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 90px; height: 22px; background: var(--text-primary); opacity: .9; border-radius: 999px; }
 :root[data-theme="dark"] .device-notch { background: #000; opacity: 1; }
-.cd { margin-top: 30px; }
+.cd { margin-top: 30px; flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .cd-head { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 14px; }
 .cd-title { font-weight: 800; font-size: 20px; }
 .cd-ai { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--primary-color); }
@@ -136,7 +136,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .cd-days b { font-size: 46px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .cd-days small { font-size: 14px; font-weight: 600; opacity: .9; }
 .cd-sub { font-size: 12px; opacity: .92; font-variant-numeric: tabular-nums; position: relative; }
-.cd-list { list-style: none; margin-top: 13px; display: flex; flex-direction: column; gap: 8px; }
+.cd-list { list-style: none; margin-top: 13px; display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; justify-content: space-evenly; }
 .cd-list li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg-secondary); font-size: 13px; font-weight: 600; animation: evIn .6s cubic-bezier(.2,.8,.25,1) backwards; }
 .cd-list li:nth-child(1) { animation-delay: .35s; }
 .cd-list li:nth-child(2) { animation-delay: .55s; }
