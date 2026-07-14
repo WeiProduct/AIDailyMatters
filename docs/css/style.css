@@ -136,7 +136,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .cd-days b { font-size: 46px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .cd-days small { font-size: 14px; font-weight: 600; opacity: .9; }
 .cd-sub { font-size: 12px; opacity: .92; font-variant-numeric: tabular-nums; position: relative; }
-.cd-list { list-style: none; margin-top: 13px; display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; justify-content: space-evenly; }
+.cd-list { list-style: none; margin-top: 13px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+.cd-list li { flex: 1; min-height: 0; }
 .cd-list li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg-secondary); font-size: 13px; font-weight: 600; animation: evIn .6s cubic-bezier(.2,.8,.25,1) backwards; }
 .cd-list li:nth-child(1) { animation-delay: .35s; }
 .cd-list li:nth-child(2) { animation-delay: .55s; }
