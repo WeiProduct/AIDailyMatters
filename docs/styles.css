@@ -283,9 +283,12 @@ body {
 }
 
 .app-store-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     background: #007AFF;
-    padding: 12px 24px;
+    color: #ffffff;
+    padding: 10px 22px;
     border-radius: 12px;
     transition: all 0.3s;
     text-decoration: none;
@@ -297,9 +300,25 @@ body {
     box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
 }
 
-.app-store-badge img {
-    height: 40px;
-    filter: brightness(0) invert(1);
+.app-store-badge-logo {
+    flex-shrink: 0;
+}
+
+.app-store-badge-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.15;
+}
+
+.app-store-badge-text small {
+    font-size: 0.68rem;
+    opacity: 0.9;
+}
+
+.app-store-badge-text strong {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .download-qr {
