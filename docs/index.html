@@ -57,6 +57,7 @@
     </script>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
 
     <nav class="navbar" id="navbar">
@@ -72,11 +73,11 @@
                 <a href="#features" class="nav-link" data-i18n="navFeatures">功能特色</a>
                 <a href="#screenshots" class="nav-link" data-i18n="navScreenshots">应用截图</a>
                 <a href="#faq" class="nav-link" data-i18n="navFaq">常见问题</a>
-                <button class="icon-btn" type="button" id="themeToggle" aria-label="切换深色模式">
+                <button class="icon-btn js-theme-toggle" type="button" id="themeToggle" aria-label="切换深色模式">
                     <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
                     <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
                 </button>
-                <button class="lang-switch" type="button" id="langSwitch" aria-label="Switch language">EN</button>
+                <button class="lang-switch js-lang-switch" type="button" id="langSwitch" aria-label="Switch language">EN</button>
                 <a href="https://apps.apple.com/app/id6749191633" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="navGet">获取 App</a>
             </div>
         </div>
@@ -145,6 +146,46 @@
         </div>
     </section>
 
+    <div class="marquee-band" aria-label="智能分类示例">
+        <p class="marquee-eyebrow" data-i18n="mqEyebrow">AI 自动配好图标与颜色</p>
+        <div class="marquee">
+            <div class="marquee-track">
+                <ul class="marquee-list">
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq1">🎂 生日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#764BA2"></span><span data-i18n="mq2">💍 纪念日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq3">📚 考试</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="mq4">✈️ 旅行</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="mq5">🧧 春节</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#667EEA"></span><span data-i18n="mq6">🏠 房租</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq7">💼 截止日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq8">🎓 毕业</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="mq9">🩺 体检</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#764BA2"></span><span data-i18n="mq10">🛂 签证</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="mq11">🎄 圣诞</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#667EEA"></span><span data-i18n="mq12">💰 账单</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq13">🎉 演唱会</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq14">📦 发售日</span></li>
+                </ul>
+                <ul class="marquee-list" aria-hidden="true">
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq1">🎂 生日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#764BA2"></span><span data-i18n="mq2">💍 纪念日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq3">📚 考试</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="mq4">✈️ 旅行</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="mq5">🧧 春节</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#667EEA"></span><span data-i18n="mq6">🏠 房租</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq7">💼 截止日</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq8">🎓 毕业</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="mq9">🩺 体检</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#764BA2"></span><span data-i18n="mq10">🛂 签证</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="mq11">🎄 圣诞</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#667EEA"></span><span data-i18n="mq12">💰 账单</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="mq13">🎉 演唱会</span></li>
+                    <li class="mq-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="mq14">📦 发售日</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <section id="how" class="how">
         <div class="container">
             <h2 class="section-title" data-i18n="howTitle">三步建好一个倒数日</h2>
@@ -172,6 +213,43 @@
                     <span class="step-eg" data-i18n="step3Eg">实时倒数 + 提醒</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="try" class="try">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tryTitle">亲手试试 AI 解析</h2>
+            <p class="section-sub" data-i18n="trySub">选一句话，点击解析，看 AI 如何拆出日期、分类、图标与颜色。</p>
+            <div class="try-panel reveal">
+                <div class="try-input">
+                    <div class="try-chips" role="group" aria-label="示例句子">
+                        <button type="button" class="try-chip active" data-demo="0" data-i18n="tryPrompt1">帮我创建妈妈生日倒数日 5月20日</button>
+                        <button type="button" class="try-chip" data-demo="1" data-i18n="tryPrompt2">考研倒计时 12月21日</button>
+                        <button type="button" class="try-chip" data-demo="2" data-i18n="tryPrompt3">纪念日旅行 10月1日</button>
+                        <button type="button" class="try-chip" data-demo="3" data-i18n="tryPrompt4">每月1号房租日</button>
+                    </div>
+                    <div class="try-sentence" id="trySentence" aria-live="polite"></div>
+                    <div class="try-legend" aria-hidden="true">
+                        <span class="tag-key key-date" data-i18n="tryTagDate">日期</span>
+                        <span class="tag-key key-cat" data-i18n="tryTagCat">分类</span>
+                        <span class="tag-key key-icon" data-i18n="tryTagIcon">图标</span>
+                        <span class="tag-key key-color" data-i18n="tryTagColor">颜色</span>
+                    </div>
+                    <button type="button" class="btn btn-primary try-btn" id="tryBtn" data-i18n="tryBtn">AI 解析</button>
+                </div>
+                <div class="try-result">
+                    <div class="try-empty" id="tryEmpty" data-i18n="tryEmpty">解析结果会出现在这里</div>
+                    <div class="try-think" id="tryThink" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <div class="try-card" id="tryCard" hidden>
+                        <span class="try-card-emoji" id="tryCardEmoji" aria-hidden="true">🎂</span>
+                        <div class="try-card-name" id="tryCardName">妈妈生日</div>
+                        <div class="try-card-days"><b id="tryCardDays">—</b><small id="tryCardUnit">天</small></div>
+                        <div class="try-card-date" id="tryCardDate">5月20日</div>
+                        <span class="try-card-cat" id="tryCardCat"><span class="cd-dot" id="tryCardDot"></span><span id="tryCardCatName">生日</span></span>
+                    </div>
+                </div>
+            </div>
+            <p class="try-note" data-i18n="tryNote">网页交互演示 · App 内为真实 AI 解析</p>
         </div>
     </section>
 
@@ -214,6 +292,55 @@
         </div>
     </section>
 
+    <section id="personas" class="personas">
+        <div class="container">
+            <h2 class="section-title" data-i18n="personaTitle">谁在用它倒数</h2>
+            <p class="section-sub" data-i18n="personaSub">不同的生活，同样重要的日子。</p>
+            <div class="personas-grid">
+                <div class="persona-card reveal">
+                    <div class="persona-ava" aria-hidden="true">📚</div>
+                    <h3 data-i18n="persona1Name">学生党</h3>
+                    <p data-i18n="persona1Desc">考试 D-day、论文截止、毕业典礼——每个节点都数着来。</p>
+                    <div class="persona-chips">
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="persona1Chip1">📚 考研</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="persona1Chip2">🎓 毕业</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="persona1Chip3">📝 答辩</span></span>
+                    </div>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-ava" aria-hidden="true">💞</div>
+                    <h3 data-i18n="persona2Name">情侣与家人</h3>
+                    <p data-i18n="persona2Desc">生日和纪念日，在到来之前就被记起。</p>
+                    <div class="persona-chips">
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="persona2Chip1">🎂 生日</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#764BA2"></span><span data-i18n="persona2Chip2">💍 纪念日</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="persona2Chip3">🧧 春节</span></span>
+                    </div>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-ava" aria-hidden="true">💼</div>
+                    <h3 data-i18n="persona3Name">职场人</h3>
+                    <p data-i18n="persona3Desc">项目截止、合同续约、签证日期，一个都不漏。</p>
+                    <div class="persona-chips">
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#6B5CE6"></span><span data-i18n="persona3Chip1">💼 项目截止</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="persona3Chip2">🛂 签证</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="persona3Chip3">📄 续约</span></span>
+                    </div>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-ava" aria-hidden="true">🏠</div>
+                    <h3 data-i18n="persona4Name">生活管理</h3>
+                    <p data-i18n="persona4Desc">房租、账单、体检——最容易忘的日子最要紧。</p>
+                    <div class="persona-chips">
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FFCE00"></span><span data-i18n="persona4Chip1">🏠 房租</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#34C759"></span><span data-i18n="persona4Chip2">💰 账单</span></span>
+                        <span class="persona-chip"><span class="cd-dot" style="--c:#FF6B9D"></span><span data-i18n="persona4Chip3">🩺 体检</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="screenshots" class="screenshots">
         <div class="container">
             <h2 class="section-title" data-i18n="screenshotsTitle">应用截图</h2>
@@ -245,6 +372,63 @@
                 <button class="gal-arrow next" type="button" aria-label="下一张" id="galNext">›</button>
             </div>
             <div class="gal-dots" id="galDots" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <section id="why" class="compare">
+        <div class="container">
+            <h2 class="section-title" data-i18n="cmpTitle">为什么选 AI倒数日</h2>
+            <p class="section-sub" data-i18n="cmpSub">和手动倒数日应用、日历应用比一比。</p>
+            <div class="compare-scroll reveal">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" aria-hidden="true"></th>
+                            <th scope="col" class="cmp-hero"><span class="cmp-hero-name" data-i18n="cmpColA">AI倒数日</span></th>
+                            <th scope="col" data-i18n="cmpColB">传统倒数日 App</th>
+                            <th scope="col" data-i18n="cmpColC">日历应用</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR1">一句话创建</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR1B">手动填表</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR1C">手动建事件</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR2">自动图标 · 颜色 · 分类</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR2B">手动挑选</span></td>
+                            <td><span class="cmp-no">—</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR3">实时倒数卡片</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR4">到日提醒</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR4B">视应用而定</span></td>
+                            <td><span class="cmp-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR5">倒数数据统计</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR5B">少见</span></td>
+                            <td><span class="cmp-no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="cmpR6">免费 · 无账号 · 本地存储</th>
+                            <td class="cmp-hero"><span class="cmp-yes">✓</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR6B">视应用而定</span></td>
+                            <td><span class="cmp-txt" data-i18n="cmpR6C">绑定云端</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -295,12 +479,43 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="nav-brand" href="#" aria-label="AI倒数日">
+                        <span class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 100 100" width="34" height="34"><rect width="100" height="100" rx="24" fill="url(#bg)"/><circle cx="50" cy="55" r="25" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-dasharray="118 200" transform="rotate(-90 50 55)"/><path d="M50 55 V38" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="55" r="4.5" fill="#fff"/><path d="M39 22 h22" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>
+                        </span>
+                        <span class="brand-name">AI倒数日</span>
+                    </a>
+                    <p class="footer-tagline" data-i18n="footTagline">AI 帮你记住每个重要的日子。</p>
+                    <a href="https://apps.apple.com/app/id6749191633" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="navGet">获取 App</a>
+                </div>
+                <nav class="footer-col" aria-label="Product">
+                    <h4 data-i18n="footProduct">产品</h4>
+                    <a href="#how" data-i18n="navHow">使用流程</a>
+                    <a href="#features" data-i18n="navFeatures">功能特色</a>
+                    <a href="#screenshots" data-i18n="navScreenshots">应用截图</a>
+                    <a href="#faq" data-i18n="navFaq">常见问题</a>
+                </nav>
+                <nav class="footer-col" aria-label="Support">
+                    <h4 data-i18n="footSupport">支持</h4>
                     <a href="privacy.html" data-i18n="footPrivacy">隐私政策</a>
                     <a href="terms.html" data-i18n="footTerms">使用条款</a>
                     <a href="https://github.com/WeiProduct/AIDailyMatters" target="_blank" rel="noopener noreferrer" data-i18n="footGithub">GitHub</a>
+                    <a href="mailto:1597498880weiproduct@gmail.com" data-i18n="footContact">联系我们</a>
+                </nav>
+                <div class="footer-col">
+                    <h4 data-i18n="footPrefs">偏好设置</h4>
+                    <div class="footer-toggles">
+                        <button class="icon-btn js-theme-toggle" type="button" aria-label="切换深色模式">
+                            <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                            <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+                        </button>
+                        <button class="lang-switch js-lang-switch" type="button" aria-label="Switch language">EN</button>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; <span id="currentYear">2026</span> <span data-i18n="footerRights">AI倒数日. 保留所有权利。</span></p>
                 <p data-i18n="footerMadeBy">Built by WeiProduct</p>
                 <p>Contact: <a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></p>

@@ -14,7 +14,14 @@ const I18N = {
     chipA: '🤖 AI 已创建', chipB: '📅 12 个倒数日',
     proofRating: '效率工具 · 时间管理',
     stat1: '原生体验', stat2: '本地存储', stat3: '双语界面', stat4: '广告 · 追踪',
+    mqEyebrow: 'AI 自动配好图标与颜色',
+    mq1: '🎂 生日', mq2: '💍 纪念日', mq3: '📚 考试', mq4: '✈️ 旅行', mq5: '🧧 春节', mq6: '🏠 房租', mq7: '💼 截止日',
+    mq8: '🎓 毕业', mq9: '🩺 体检', mq10: '🛂 签证', mq11: '🎄 圣诞', mq12: '💰 账单', mq13: '🎉 演唱会', mq14: '📦 发售日',
     howTitle: '三步建好一个倒数日', howSub: '说人话就行，剩下的交给 AI。',
+    tryTitle: '亲手试试 AI 解析', trySub: '选一句话，点击解析，看 AI 如何拆出日期、分类、图标与颜色。',
+    tryPrompt1: '帮我创建妈妈生日倒数日 5月20日', tryPrompt2: '考研倒计时 12月21日', tryPrompt3: '纪念日旅行 10月1日', tryPrompt4: '每月1号房租日',
+    tryTagDate: '日期', tryTagCat: '分类', tryTagIcon: '图标', tryTagColor: '颜色',
+    tryBtn: 'AI 解析', tryEmpty: '解析结果会出现在这里', tryNote: '网页交互演示 · App 内为真实 AI 解析',
     step1Title: '说出或输入', step1Desc: '用自然语言描述你想记住的日子，无需一格格填表单。', step1Eg: '“帮我创建妈妈生日倒数日”',
     step2Title: 'AI 自动解析', step2Desc: 'AI 识别日期、分类、图标和颜色，自动补全所有细节。', step2Eg: '日期 · 分类 · 图标 · 颜色',
     step3Title: '生成倒数卡片', step3Desc: '立刻得到一张漂亮的倒数卡片，还能设置到日提醒。', step3Eg: '实时倒数 + 提醒',
@@ -25,7 +32,24 @@ const I18N = {
     feature4Title: '数据统计', feature4Desc: '详细的统计分析，了解你的时间规划习惯，帮助你更好地管理时间。',
     feature5Title: '智能提醒', feature5Desc: '重要事件到日提醒，确保你不会错过任何值得纪念的时刻。',
     feature6Title: '隐私保护', feature6Desc: '所有倒数日数据本地存储，充分保护你的隐私安全。',
+    personaTitle: '谁在用它倒数', personaSub: '不同的生活，同样重要的日子。',
+    persona1Name: '学生党', persona1Desc: '考试 D-day、论文截止、毕业典礼——每个节点都数着来。',
+    persona1Chip1: '📚 考研', persona1Chip2: '🎓 毕业', persona1Chip3: '📝 答辩',
+    persona2Name: '情侣与家人', persona2Desc: '生日和纪念日，在到来之前就被记起。',
+    persona2Chip1: '🎂 生日', persona2Chip2: '💍 纪念日', persona2Chip3: '🧧 春节',
+    persona3Name: '职场人', persona3Desc: '项目截止、合同续约、签证日期，一个都不漏。',
+    persona3Chip1: '💼 项目截止', persona3Chip2: '🛂 签证', persona3Chip3: '📄 续约',
+    persona4Name: '生活管理', persona4Desc: '房租、账单、体检——最容易忘的日子最要紧。',
+    persona4Chip1: '🏠 房租', persona4Chip2: '💰 账单', persona4Chip3: '🩺 体检',
     screenshotsTitle: '应用截图', screenshotsSub: '左右滑动，点击可放大查看。',
+    cmpTitle: '为什么选 AI倒数日', cmpSub: '和手动倒数日应用、日历应用比一比。',
+    cmpColA: 'AI倒数日', cmpColB: '传统倒数日 App', cmpColC: '日历应用',
+    cmpR1: '一句话创建', cmpR1B: '手动填表', cmpR1C: '手动建事件',
+    cmpR2: '自动图标 · 颜色 · 分类', cmpR2B: '手动挑选',
+    cmpR3: '实时倒数卡片',
+    cmpR4: '到日提醒', cmpR4B: '视应用而定',
+    cmpR5: '倒数数据统计', cmpR5B: '少见',
+    cmpR6: '免费 · 无账号 · 本地存储', cmpR6B: '视应用而定', cmpR6C: '绑定云端',
     shot1: '主页 · 倒数日列表', shot2: 'AI 智能助手', shot3: '月历视图', shot4: '创建倒数日', shot5: '数据统计',
     privacyTitle: '你的重要日子，只属于你', privacyDesc: '倒数日数据全部保存在设备本地，无需注册账号，无广告、无追踪。仅当你使用 AI 助手时，对话文本才会发送给 OpenAI 以理解你的请求。',
     pp1: '数据本地存储', pp2: '无需注册账号', pp3: '无广告无追踪', pp4: '完全免费',
@@ -40,6 +64,7 @@ const I18N = {
     downloadNote: '需要 iOS 16.0 或更高版本',
     footerRights: 'AI倒数日. 保留所有权利。', footerMadeBy: 'Built by WeiProduct',
     footPrivacy: '隐私政策', footTerms: '使用条款', footGithub: 'GitHub',
+    footTagline: 'AI 帮你记住每个重要的日子。', footProduct: '产品', footSupport: '支持', footPrefs: '偏好设置', footContact: '联系我们',
     stickySub: 'AI 倒数日 · 免费', stickyGet: '获取'
   },
   'en': {
@@ -56,7 +81,14 @@ const I18N = {
     chipA: '🤖 Created by AI', chipB: '📅 12 countdowns',
     proofRating: 'Productivity · Time management',
     stat1: 'Native feel', stat2: 'On-device', stat3: 'Bilingual', stat4: 'Ads · Tracking',
+    mqEyebrow: 'Icons & colors, auto-picked by AI',
+    mq1: '🎂 Birthday', mq2: '💍 Anniversary', mq3: '📚 Exam', mq4: '✈️ Trip', mq5: '🧧 Lunar New Year', mq6: '🏠 Rent', mq7: '💼 Deadline',
+    mq8: '🎓 Graduation', mq9: '🩺 Checkup', mq10: '🛂 Visa', mq11: '🎄 Christmas', mq12: '💰 Bill', mq13: '🎉 Concert', mq14: '📦 Launch day',
     howTitle: 'Build a countdown in three steps', howSub: 'Say it in plain words — AI handles the rest.',
+    tryTitle: 'Try the AI parsing yourself', trySub: 'Pick a sentence, hit Parse, and watch AI extract the date, category, icon and color.',
+    tryPrompt1: "Create a countdown to Mom's birthday May 20", tryPrompt2: 'Countdown to my final exam Dec 21', tryPrompt3: 'Anniversary trip on Oct 1', tryPrompt4: 'Rent due on the 1st',
+    tryTagDate: 'Date', tryTagCat: 'Category', tryTagIcon: 'Icon', tryTagColor: 'Color',
+    tryBtn: 'Parse with AI', tryEmpty: 'The parsed result will appear here', tryNote: 'Interactive web demo — the real app uses live AI',
     step1Title: 'Type or speak', step1Desc: 'Describe the day you want to remember in natural language — no form-filling.', step1Eg: '“Create a countdown to Mom’s birthday”',
     step2Title: 'AI parses it', step2Desc: 'AI detects the date, category, icon and color, filling in every detail for you.', step2Eg: 'Date · Category · Icon · Color',
     step3Title: 'Get a countdown card', step3Desc: 'Instantly get a beautiful live countdown card — with a reminder on the day.', step3Eg: 'Live countdown + reminder',
@@ -67,7 +99,24 @@ const I18N = {
     feature4Title: 'Statistics', feature4Desc: 'Detailed analytics reveal your time-planning habits and help you manage your days better.',
     feature5Title: 'Smart Reminders', feature5Desc: 'On-the-day reminders for important events, so you never miss a moment worth remembering.',
     feature6Title: 'Privacy First', feature6Desc: 'All your countdown data is stored locally, fully protecting your privacy.',
+    personaTitle: 'Who counts on it', personaSub: 'Different lives, equally important days.',
+    persona1Name: 'Students', persona1Desc: 'Exam D-days, thesis deadlines, graduation day — every milestone counted.',
+    persona1Chip1: '📚 Finals', persona1Chip2: '🎓 Graduation', persona1Chip3: '📝 Defense',
+    persona2Name: 'Couples & Family', persona2Desc: 'Birthdays and anniversaries, remembered before they arrive.',
+    persona2Chip1: '🎂 Birthday', persona2Chip2: '💍 Anniversary', persona2Chip3: '🧧 New Year',
+    persona3Name: 'Professionals', persona3Desc: 'Project deadlines, contract renewals, visa dates — none slip by.',
+    persona3Chip1: '💼 Deadline', persona3Chip2: '🛂 Visa', persona3Chip3: '📄 Renewal',
+    persona4Name: 'Life Admin', persona4Desc: 'Rent, bills, checkups — the boring dates that bite.',
+    persona4Chip1: '🏠 Rent', persona4Chip2: '💰 Bills', persona4Chip3: '🩺 Checkup',
     screenshotsTitle: 'Screenshots', screenshotsSub: 'Swipe through — tap any shot to zoom in.',
+    cmpTitle: 'Why AI Daily Matters', cmpSub: 'Compared with manual countdown apps and calendar apps.',
+    cmpColA: 'AI Daily Matters', cmpColB: 'Manual countdown apps', cmpColC: 'Calendar apps',
+    cmpR1: 'Create with one sentence', cmpR1B: 'Form-filling', cmpR1C: 'Manual events',
+    cmpR2: 'Auto icon · color · category', cmpR2B: 'Pick by hand',
+    cmpR3: 'Live day-countdown card',
+    cmpR4: 'On-the-day reminders', cmpR4B: 'Varies',
+    cmpR5: 'Countdown statistics', cmpR5B: 'Rare',
+    cmpR6: 'Free · no account · on-device', cmpR6B: 'Varies', cmpR6C: 'Cloud-tied',
     shot1: 'Home · countdown list', shot2: 'AI assistant', shot3: 'Calendar view', shot4: 'Create a countdown', shot5: 'Statistics',
     privacyTitle: 'Your important days are yours alone', privacyDesc: 'Countdown data is stored on your device — no account, no ads, no tracking. Only when you use the AI assistant is your chat text sent to OpenAI to understand your request.',
     pp1: 'Stored on-device', pp2: 'No account needed', pp3: 'No ads, no tracking', pp4: 'Completely free',
@@ -82,6 +131,7 @@ const I18N = {
     downloadNote: 'Requires iOS 16.0 or later',
     footerRights: 'AI Daily Matters. All rights reserved.', footerMadeBy: 'Built by WeiProduct',
     footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use', footGithub: 'GitHub',
+    footTagline: 'AI remembers the days that matter.', footProduct: 'Product', footSupport: 'Support', footPrefs: 'Preferences', footContact: 'Contact us',
     stickySub: 'AI countdowns · Free', stickyGet: 'Get'
   }
 };
@@ -96,10 +146,10 @@ function applyLang(lang) {
     if (t[k] !== undefined) el.textContent = t[k];
   });
   document.documentElement.lang = currentLang;
-  const ls = document.getElementById('langSwitch');
-  if (ls) ls.textContent = currentLang === 'zh-CN' ? 'EN' : '中文';
+  document.querySelectorAll('.js-lang-switch').forEach(b => { b.textContent = currentLang === 'zh-CN' ? 'EN' : '中文'; });
   try { localStorage.setItem('lang', currentLang); } catch (e) {}
   updateCountdown();
+  renderTryDemo();
 }
 
 function initLang() {
@@ -164,6 +214,94 @@ function updateCountdown() {
     const el = document.getElementById(it.id);
     if (el && it.date) el.textContent = daysBetween(it.date) + (currentLang === 'zh-CN' ? ' 天' : 'd');
   });
+}
+
+// ===== Try-it AI parse demo =====
+// Segments join to exactly the tryPrompt strings; second item marks the entity type.
+const TRY_DEMOS = {
+  'zh-CN': [
+    { seg: [['帮我创建'], ['妈妈生日', 'cat'], ['倒数日 '], ['5月20日', 'date']], emoji: '🎂', color: '#FF6B9D', name: '妈妈生日', cat: '生日', dateLabel: '5月20日', m: 5, d: 20 },
+    { seg: [['考研', 'cat'], ['倒计时 '], ['12月21日', 'date']], emoji: '📚', color: '#6B5CE6', name: '考研', cat: '学习', dateLabel: '12月21日', m: 12, d: 21 },
+    { seg: [['纪念日旅行', 'cat'], [' '], ['10月1日', 'date']], emoji: '✈️', color: '#764BA2', name: '纪念日旅行', cat: '旅行', dateLabel: '10月1日', m: 10, d: 1 },
+    { seg: [['每月'], ['1号', 'date'], ['房租日', 'cat']], emoji: '🏠', color: '#FFCE00', name: '房租日', cat: '生活', dateLabel: '每月1号', m: 0, d: 0 }
+  ],
+  'en': [
+    { seg: [['Create a countdown to '], ["Mom's birthday", 'cat'], [' '], ['May 20', 'date']], emoji: '🎂', color: '#FF6B9D', name: "Mom's Birthday", cat: 'Birthday', dateLabel: 'May 20', m: 5, d: 20 },
+    { seg: [['Countdown to '], ['my final exam', 'cat'], [' '], ['Dec 21', 'date']], emoji: '📚', color: '#6B5CE6', name: 'Final Exam', cat: 'Study', dateLabel: 'Dec 21', m: 12, d: 21 },
+    { seg: [['Anniversary trip', 'cat'], [' on '], ['Oct 1', 'date']], emoji: '✈️', color: '#764BA2', name: 'Anniversary Trip', cat: 'Travel', dateLabel: 'Oct 1', m: 10, d: 1 },
+    { seg: [['Rent', 'cat'], [' due on '], ['the 1st', 'date']], emoji: '🏠', color: '#FFCE00', name: 'Rent Due', cat: 'Life', dateLabel: '1st of each month', m: 0, d: 0 }
+  ]
+};
+let tryIdx = 0, tryParsed = false, tryTimers = [];
+
+function tryTargetDate(demo) { return demo.m ? nextOccurrence(demo.m, demo.d) : firstOfNextMonth(); }
+
+function renderTryDemo() {
+  const sen = document.getElementById('trySentence');
+  if (!sen) return;
+  const demo = (TRY_DEMOS[currentLang] || TRY_DEMOS['zh-CN'])[tryIdx];
+  sen.innerHTML = '';
+  demo.seg.forEach(s => {
+    if (s[1]) {
+      const m = document.createElement('mark');
+      m.className = 'tag tag-' + s[1] + (tryParsed ? ' on' : '');
+      m.textContent = s[0];
+      sen.appendChild(m);
+    } else {
+      sen.appendChild(document.createTextNode(s[0]));
+    }
+  });
+  document.querySelectorAll('.try-chip').forEach((c, i) => c.classList.toggle('active', i === tryIdx));
+  const empty = document.getElementById('tryEmpty');
+  const think = document.getElementById('tryThink');
+  const card = document.getElementById('tryCard');
+  if (think) think.classList.remove('on');
+  if (empty) empty.hidden = tryParsed;
+  if (card) {
+    card.hidden = !tryParsed;
+    if (tryParsed) {
+      document.getElementById('tryCardEmoji').textContent = demo.emoji;
+      document.getElementById('tryCardName').textContent = demo.name;
+      document.getElementById('tryCardDays').textContent = daysBetween(tryTargetDate(demo));
+      document.getElementById('tryCardUnit').textContent = currentLang === 'zh-CN' ? '天' : 'days';
+      document.getElementById('tryCardDate').textContent = demo.dateLabel;
+      document.getElementById('tryCardCatName').textContent = demo.cat;
+      document.getElementById('tryCardDot').style.setProperty('--c', demo.color);
+    }
+  }
+}
+
+function clearTryTimers() { tryTimers.forEach(clearTimeout); tryTimers = []; }
+
+function initTryDemo() {
+  const btn = document.getElementById('tryBtn');
+  if (!btn) return;
+  document.querySelectorAll('.try-chip').forEach((c, i) => {
+    c.addEventListener('click', () => {
+      clearTryTimers();
+      btn.disabled = false;
+      tryIdx = i; tryParsed = false;
+      renderTryDemo();
+    });
+  });
+  btn.addEventListener('click', () => {
+    clearTryTimers();
+    tryParsed = false;
+    renderTryDemo();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      tryParsed = true; renderTryDemo(); return;
+    }
+    btn.disabled = true;
+    const empty = document.getElementById('tryEmpty');
+    if (empty) empty.hidden = true;
+    const think = document.getElementById('tryThink');
+    if (think) think.classList.add('on');
+    document.querySelectorAll('#trySentence mark').forEach((m, j) => {
+      tryTimers.push(setTimeout(() => m.classList.add('on'), 450 + j * 350));
+    });
+    tryTimers.push(setTimeout(() => { tryParsed = true; renderTryDemo(); btn.disabled = false; }, 1500));
+  });
+  renderTryDemo();
 }
 
 // ===== Gallery =====
@@ -238,10 +376,15 @@ function initReveal() {
 function initScroll() {
   const nav = document.getElementById('navbar');
   const sticky = document.getElementById('stickyCta');
+  const prog = document.getElementById('scrollProgress');
   const onScroll = () => {
     const y = window.scrollY;
     if (nav) nav.classList.toggle('scrolled', y > 20);
     if (sticky) sticky.classList.toggle('show', y > 620);
+    if (prog) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + '%';
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -251,6 +394,7 @@ function initScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initLang();
+  initTryDemo();
   initGallery();
   initReveal();
   initScroll();
@@ -260,10 +404,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const yr = document.getElementById('currentYear');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  const ls = document.getElementById('langSwitch');
-  if (ls) ls.addEventListener('click', () => applyLang(currentLang === 'zh-CN' ? 'en' : 'zh-CN'));
-  const tt = document.getElementById('themeToggle');
-  if (tt) tt.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+  document.querySelectorAll('.js-lang-switch').forEach(b => b.addEventListener('click', () => applyLang(currentLang === 'zh-CN' ? 'en' : 'zh-CN')));
+  document.querySelectorAll('.js-theme-toggle').forEach(b => b.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')));
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function (e) {
