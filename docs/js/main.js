@@ -65,7 +65,18 @@ const I18N = {
     footerRights: 'AI倒数日. 保留所有权利。', footerMadeBy: 'Built by WeiProduct',
     footPrivacy: '隐私政策', footTerms: '使用条款', footGithub: 'GitHub',
     footTagline: 'AI 帮你记住每个重要的日子。', footProduct: '产品', footSupport: '支持', footPrefs: '偏好设置', footContact: '联系我们',
-    stickySub: 'AI 倒数日 · 免费', stickyGet: '获取'
+    stickySub: 'AI 倒数日 · 免费', stickyGet: '获取',
+    /* AI-AVATAR */
+    aiTitle: 'AI分身 · AI倒数日助手',
+    aiGreeting: '你好！我是 AI倒数日 的 AI分身 📅 关于一句话建倒数日、隐私保护、设备支持或价格，都可以问我。',
+    aiPlaceholder: '输入你的问题…',
+    aiSend: '发送',
+    aiChip1: '怎么用一句话建倒数日？',
+    aiChip2: '我的数据安全吗？',
+    aiChip3: '需要付费吗？',
+    aiDisclaimer: 'AI 生成，仅供参考',
+    aiError: '抱歉，AI 助手暂时连不上，请稍后再试。(Sorry, the assistant is temporarily unreachable — please try again later.)'
+    /* /AI-AVATAR */
   },
   'en': {
     skip: 'Skip to content',
@@ -132,7 +143,18 @@ const I18N = {
     footerRights: 'AI Daily Matters. All rights reserved.', footerMadeBy: 'Built by WeiProduct',
     footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use', footGithub: 'GitHub',
     footTagline: 'AI remembers the days that matter.', footProduct: 'Product', footSupport: 'Support', footPrefs: 'Preferences', footContact: 'Contact us',
-    stickySub: 'AI countdowns · Free', stickyGet: 'Get'
+    stickySub: 'AI countdowns · Free', stickyGet: 'Get',
+    /* AI-AVATAR */
+    aiTitle: 'AI Avatar · AI Daily Matters Assistant',
+    aiGreeting: 'Hi! I\'m the AI avatar for AI Daily Matters 📅 Ask me about one-sentence countdowns, privacy, supported devices, or pricing.',
+    aiPlaceholder: 'Type your question…',
+    aiSend: 'Send',
+    aiChip1: 'How do I create a countdown with one sentence?',
+    aiChip2: 'Is my data private?',
+    aiChip3: 'Is the app free?',
+    aiDisclaimer: 'AI-generated · for reference only',
+    aiError: 'Sorry, the assistant is temporarily unreachable — please try again later. （抱歉，AI 助手暂时连不上，请稍后再试。）'
+    /* /AI-AVATAR */
   }
 };
 
@@ -145,6 +167,12 @@ function applyLang(lang) {
     const k = el.getAttribute('data-i18n');
     if (t[k] !== undefined) el.textContent = t[k];
   });
+  /* AI-AVATAR: translate placeholder attributes */
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const k = el.getAttribute('data-i18n-ph');
+    if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+  });
+  /* /AI-AVATAR */
   document.documentElement.lang = currentLang;
   document.querySelectorAll('.js-lang-switch').forEach(b => { b.textContent = currentLang === 'zh-CN' ? 'EN' : '中文'; });
   try { localStorage.setItem('lang', currentLang); } catch (e) {}
@@ -417,3 +445,147 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+/* AI-AVATAR: floating "AI分身" assistant widget */
+(function () {
+  const AI_PROXY_URL = 'https://personal-portfolio-api-sandy.vercel.app/api/chat-proxy';
+  const AI_SYSTEM_PROMPT = [
+    'You are the "AI分身" (AI avatar) assistant on the promo website of AI Daily Matters (AI倒数日), an iOS countdown-day app by WeiProduct.',
+    '',
+    'App facts (the ONLY facts you may state):',
+    '- One-liner: tell the AI in plain words which day matters to you, and it builds the countdown for you — automatically detecting the date, category, icon and color.',
+    '- Key features: AI assistant that creates and manages countdowns through natural-language chat (e.g. "Create a countdown to Mom\'s birthday May 20"); live countdown cards; calendar view showing all important dates at a glance; smart custom categories with unique icons and colors; statistics on your time-planning habits; on-the-day smart reminders.',
+    '- Privacy: countdown data is stored on-device only — no account, no ads, no tracking; only when the user chats with the in-app AI assistant is that chat text sent to OpenAI over an encrypted connection to understand the request.',
+    '- Platform: iPhone and iPad, requires iOS 16.0 or later.',
+    '- Price: completely free, no in-app purchases, no account required.',
+    '- Languages: English and Simplified Chinese (中文).',
+    '- App Store link: https://apps.apple.com/app/id6749191633',
+    '',
+    'Style rules:',
+    '- ALWAYS reply in the same language as the user\'s most recent message: English question → English answer, 中文提问 → 中文回答. Do NOT default to Chinese just because the app has a Chinese name.',
+    '- Keep replies to 1-3 short sentences; be friendly and concrete.',
+    '- NEVER invent download counts, ratings, reviews, or features not listed above.',
+    '- If asked about unrelated topics, politely steer the conversation back to AI Daily Matters.',
+    '- When the user wants to download or try the app, point them to the App Store link.'
+  ].join('\n');
+  const AI_MAX_HISTORY = 12;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('aiToggle');
+    const panel = document.getElementById('aiPanel');
+    const closeBtn = document.getElementById('aiClose');
+    const msgs = document.getElementById('aiMsgs');
+    const chipsWrap = document.getElementById('aiChips');
+    const form = document.getElementById('aiForm');
+    const input = document.getElementById('aiInput');
+    const sendBtn = document.getElementById('aiSendBtn');
+    if (!toggle || !panel || !msgs || !form || !input) return;
+
+    let history = [];
+    let greeted = false;
+    let busy = false;
+
+    function addBubble(role, text, i18nKey) {
+      const div = document.createElement('div');
+      div.className = 'ai-msg ' + (role === 'user' ? 'user' : 'bot');
+      if (i18nKey) {
+        div.setAttribute('data-i18n', i18nKey); // follows future language switches too
+        div.textContent = I18N[currentLang][i18nKey];
+      } else {
+        div.textContent = text;
+      }
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+      return div;
+    }
+
+    function showTyping() {
+      const div = document.createElement('div');
+      div.className = 'ai-msg bot ai-typing';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+      return div;
+    }
+
+    function openPanel() {
+      panel.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      if (!greeted) { greeted = true; addBubble('bot', '', 'aiGreeting'); }
+      input.focus();
+    }
+    function closePanel() {
+      panel.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+
+    async function send(text) {
+      text = (text || '').trim();
+      if (!text || busy) return;
+      busy = true;
+      if (sendBtn) sendBtn.disabled = true;
+      if (chipsWrap) chipsWrap.hidden = true;
+      addBubble('user', text);
+      history.push({ role: 'user', content: text });
+      history = history.slice(-AI_MAX_HISTORY);
+      const typing = showTyping();
+      try {
+        const res = await fetch(AI_PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [{ role: 'system', content: AI_SYSTEM_PROMPT }].concat(history),
+            max_tokens: 350
+          })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        let reply = '';
+        if (data && data.choices && data.choices[0]) {
+          const m = data.choices[0].message;
+          reply = (m && m.content) || data.choices[0].text || '';
+        }
+        if (!reply && data && typeof data.content === 'string') reply = data.content;
+        if (!reply && data && typeof data.reply === 'string') reply = data.reply;
+        if (!reply && data && typeof data.message === 'string') reply = data.message;
+        reply = (reply || '').trim();
+        if (!reply) throw new Error('empty reply');
+        typing.remove();
+        addBubble('bot', reply);
+        history.push({ role: 'assistant', content: reply });
+        history = history.slice(-AI_MAX_HISTORY);
+      } catch (err) {
+        typing.remove();
+        addBubble('bot', '', 'aiError');
+      } finally {
+        busy = false;
+        if (sendBtn) sendBtn.disabled = false;
+      }
+    }
+
+    toggle.addEventListener('click', () => (panel.hidden ? openPanel() : closePanel()));
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) closePanel(); });
+    if (chipsWrap) chipsWrap.querySelectorAll('.ai-chip').forEach(chip => {
+      chip.addEventListener('click', () => send(chip.textContent));
+    });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const v = input.value;
+      input.value = '';
+      send(v);
+    });
+
+    // Dev/verify affordance: ?aichat=open auto-opens; ?aichat=demo also sends chip 1 for real.
+    const q = location.search;
+    if (q.indexOf('aichat=open') !== -1 || q.indexOf('aichat=demo') !== -1) {
+      openPanel();
+      if (q.indexOf('aichat=demo') !== -1) {
+        setTimeout(() => send(I18N[currentLang].aiChip1), 600);
+      }
+    }
+  });
+})();
+/* /AI-AVATAR */
